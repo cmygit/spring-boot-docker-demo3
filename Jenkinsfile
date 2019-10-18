@@ -6,7 +6,7 @@ pipeline {
             agent any
 
             steps {
-                sh 'docker --version'
+                sh 'pwd'
             }
         }
 
@@ -14,26 +14,28 @@ pipeline {
             agent {
                 docker {
                     image 'maven:3-alpine'
-                    args '-v $HOME/.m2:/root/.m2 -v $PWD/target:$PWD/target'
+                    args '-v $HOME/.m2:/root/.m2'
                 }
             }
 
             steps {
                 sh 'mvn -B -DskipTests clean package'
-                sh 'pwd'
             }
         }
 
-//        stage('DockerImage-Build') {
+        stage('DockerImage-Build') {
 //            agent {
 //                dockerfile {
 //                    additionalBuildArgs  '-t registry.cn-hangzhou.aliyuncs.com/yiyi-jenkins/demo1'
 //                }
 //            }
-//
-//            steps {
+
+            agent any
+
+            steps {
+                sh 'pwd'
 //                sh './run.sh'
-//            }
-//        }
+            }
+        }
     }
 }
