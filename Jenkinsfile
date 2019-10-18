@@ -14,7 +14,7 @@ pipeline {
             agent {
                 docker {
                     image 'maven:3-alpine'
-                    args '-v $HOME/.m2:/root/.m2 -v "$(pwd)"/target:"$(pwd)"/target'
+                    args '-v $HOME/.m2:/root/.m2'
                 }
             }
 
@@ -34,6 +34,7 @@ pipeline {
 
             steps {
                 sh 'pwd'
+                sh 'ls'
 //                sh './run.sh'
             }
         }
