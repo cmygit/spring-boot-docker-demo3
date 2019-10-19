@@ -10,7 +10,7 @@ pipeline {
             }
         }
 
-        stage('Maven-Build') {
+        stage('Build') {
             agent {
                 docker {
                     image 'maven:3-alpine'
@@ -20,22 +20,15 @@ pipeline {
 
             steps {
                 sh 'mvn -B -DskipTests clean package'
+                sh './run.sh'
             }
         }
 
-        stage('DockerImage-Build') {
-//            agent {
-//                dockerfile {
-//                    additionalBuildArgs  '-t registry.cn-hangzhou.aliyuncs.com/yiyi-jenkins/demo1'
-//                }
-//            }
-
+        stage('Check') {
             agent any
 
             steps {
-                sh 'pwd'
-                sh 'ls'
-//                sh './run.sh'
+                sh 'docker images'
             }
         }
     }
