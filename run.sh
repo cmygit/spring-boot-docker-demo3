@@ -2,7 +2,7 @@
 
 # 打包镜像
 echo "build image"
-docker build -t registry.cn-hangzhou.aliyuncs.com/yiyi-jenkins/jenkins-demo1 .
+docker build -t registry.cn-hangzhou.aliyuncs.com/yiyi-teamcity/teamcity-demo1 .
 
 # 查看镜像
 echo "show images"
