@@ -7,7 +7,6 @@ pipeline {
                 docker {
                     image 'maven:3-alpine'
                     args '-v $HOME/.m2:/root/.m2'
-                    label 'master-node1'
                 }
 
             }
@@ -18,12 +17,11 @@ pipeline {
         }
 
         stage('Check') {
-            agent {
-                label 'master-node1'
-            }
+            agent any
 
             steps {
                 sh 'ls'
+                sh './run.sh'
             }
         }
     }
