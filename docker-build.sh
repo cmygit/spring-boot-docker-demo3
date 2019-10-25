@@ -29,4 +29,8 @@ docker run -d -p 9090:8080 --name $ImageName $Registry/$NameSpace/$ImageName
 echo "current container..."
 docker ps -a | grep $ImageName
 
-echo "star container success!"
+# 推送镜像
+echo "push image..."
+echo "user: $User"
+echo "username: $UserName"
+echo "password: $Password"
