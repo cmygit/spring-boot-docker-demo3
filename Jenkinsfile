@@ -1,8 +1,14 @@
 pipeline {
     agent none
 
+    environment {
+        Registry: 'registry.cn-hangzhou.aliyuncs.com'
+        NameSpace: 'cmyiyi11'
+        ImageName: 'ci-demo1'
+    }
+
     stages {
-        stage('Build') {
+        stage('maven-build') {
             agent {
                 docker {
                     image 'maven:3-alpine'
@@ -12,18 +18,24 @@ pipeline {
             }
 
             steps {
-//                sh 'mvn -B -DskipTests clean package'
-                sh 'echo mvn package'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
 
-        stage('Check') {
+        stage('docker-build') {
             agent any
 
             steps {
-                sh 'ls'
-                sh 'chmod +x run.sh'
+                sh 'chmod +x ./run.sh'
                 sh './run.sh'
+            }
+        }
+
+        post {
+            always {
+                steps {
+                    cleanWs(notFailBuild: true)
+                }
             }
         }
     }
