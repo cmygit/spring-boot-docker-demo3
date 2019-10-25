@@ -32,5 +32,6 @@ ImageFullName=$Registry/$NameSpace/$ImageName
 # 推送镜像
 echo "push image..."
 echo "Registry: $Registry"
-printf $DOCKER_USER_PASSWORD | docker login -u 2013cm2013 --password-stdin $Registry
-docker push $ImageFullName:latest
+printf $DOCKER_USER_PSW | docker login -u $DOCKER_USER_USR --password-stdin $Registry
+printf $DOCKER_USER_PASSWORD | docker login -u $DOCKER_USER_USERNAME --password-stdin $Registry
+#docker push $ImageFullName:latest

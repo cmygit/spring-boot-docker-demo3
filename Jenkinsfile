@@ -7,6 +7,7 @@ pipeline {
         ImageName = 'ci-demo1'
         DOCKER_USER_USR = credentials('docker-ali-registry-user')
         DOCKER_USER_PSW = credentials('docker-ali-registry-user')
+        DOCKER_USER_USERNAME = credentials('docker-ali-registry-user-username')
         DOCKER_USER_PASSWORD = credentials('docker-ali-registry-user-password')
     }
 
