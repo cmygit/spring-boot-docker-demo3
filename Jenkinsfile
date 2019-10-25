@@ -2,9 +2,9 @@ pipeline {
     agent none
 
     environment {
-        Registry: 'registry.cn-hangzhou.aliyuncs.com'
-        NameSpace: 'cmyiyi11'
-        ImageName: 'ci-demo1'
+        Registry = 'registry.cn-hangzhou.aliyuncs.com'
+        NameSpace = 'cmyiyi11'
+        ImageName = 'ci-demo1'
     }
 
     stages {
