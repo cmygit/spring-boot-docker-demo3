@@ -18,8 +18,7 @@ pipeline {
             }
 
             steps {
-//                sh 'mvn -B -DskipTests clean package'
-                sh 'echo mvn package'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
 
@@ -27,8 +26,8 @@ pipeline {
             agent any
 
             steps {
-                sh 'chmod +x ./run.sh'
-                sh './run.sh'
+                sh 'chmod +x ./docker-build.sh'
+                sh './docker-build.sh'
             }
         }
 
@@ -40,10 +39,4 @@ pipeline {
             }
         }
     }
-
-//    post {
-//        always {
-//            cleanWs(notFailBuild: true)
-//        }
-//    }
 }
