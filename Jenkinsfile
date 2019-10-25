@@ -34,9 +34,7 @@ pipeline {
 
     post {
         always {
-            steps {
-                cleanWs(notFailBuild: true)
-            }
+            cleanWs(notFailBuild: true)
         }
     }
 }
