@@ -10,8 +10,8 @@ echo "remobe old container..."
 docker ps -a | grep $ImageName | awk '{print $1}'| xargs docker rm -f
 
 ## 删除之前的镜像
-#echo "romove old image"
-#docker rmi $ImageFullName
+echo "romove old image"
+docker rmi $ImageFullName
 
 # 打包镜像
 echo "build image..."
@@ -23,7 +23,7 @@ docker images | grep $ImageFullName
 
 # 启动容器
 echo "start container..."
-docker run -d -p 9090:8080 --name $ImageName $Registry/$NameSpace/$ImageName
+docker run -d -p 9090:8080 --name $ImageName $ImageFullName
 
 # 打印当前容器
 echo "current container..."
@@ -31,6 +31,5 @@ docker ps -a | grep $ImageName
 
 # 推送镜像
 echo "push image..."
-echo "user: $DOCKER_USER"
-echo "username: $DOCKER_USERNAME"
-echo "password: $DOCKER_PASSWORD"
+docker login -u=$DOCKER_USER_USR -p $DOCKER_USER_PSW $Registry
+docker push $ImageFullName:latest
