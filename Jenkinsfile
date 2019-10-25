@@ -21,7 +21,7 @@ pipeline {
 
             steps {
                 sh 'ls'
-                sh './run.sh'
+                sh 'sudo ./run.sh'
             }
         }
     }
