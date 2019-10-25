@@ -12,7 +12,8 @@ pipeline {
             }
 
             steps {
-                sh 'mvn -B -DskipTests clean package'
+//                sh 'mvn -B -DskipTests clean package'
+                sh 'echo mvn package'
             }
         }
 
@@ -21,7 +22,8 @@ pipeline {
 
             steps {
                 sh 'ls'
-                sh 'sudo ./run.sh'
+                sh 'chmod +x run.sh'
+                sh './run.sh'
             }
         }
     }
