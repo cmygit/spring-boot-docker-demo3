@@ -31,6 +31,6 @@ docker ps -a | grep $ImageName
 
 # 推送镜像
 echo "push image..."
-echo "user: $User"
-echo "username: $UserName"
-echo "password: $Password"
+echo "user: $DOCKER_USER"
+echo "username: $DOCKER_USERNAME"
+echo "password: $DOCKER_PASSWORD"

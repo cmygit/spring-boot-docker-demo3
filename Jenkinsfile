@@ -5,9 +5,9 @@ pipeline {
         Registry = 'registry.cn-hangzhou.aliyuncs.com'
         NameSpace = 'cmyiyi11'
         ImageName = 'ci-demo1'
-        User = credentials('docker-ali-registry-user')
-        UserName = '2013cm2013'
-        Password = credentials('docker-ali-registry-user-password')
+        DOCKER_USER = credentials('docker-ali-registry-user')
+        DOCKER_USERNAME = '2013cm2013'
+        DOCKER_PASSWORD = credentials('docker-ali-registry-user-password')
     }
 
     stages {
