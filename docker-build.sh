@@ -23,7 +23,7 @@ docker images | grep $$ImageFullName
 
 # 启动容器
 echo "start container"
-docker run -d -p 8761:8080 --name $ImageName $Registry/$NameSpace/$ImageName
+docker run -d -p 9090:8080 --name $ImageName $Registry/$NameSpace/$ImageName
 
 # 打印当前容器
 echo "current container"
