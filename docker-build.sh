@@ -19,7 +19,7 @@ docker build -t $ImageFullName .
 
 # 打印当前镜像
 echo "current docker images..."
-docker images | grep $$ImageFullName
+docker images | grep $ImageFullName
 
 # 启动容器
 echo "start container..."
