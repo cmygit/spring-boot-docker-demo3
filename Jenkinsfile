@@ -18,7 +18,7 @@ pipeline {
             }
 
             steps {
-                sh 'mvn -B -DskipTests clean package'
+//                sh 'mvn -B -DskipTests clean package'
             }
         }
 
@@ -30,11 +30,19 @@ pipeline {
                 sh './run.sh'
             }
         }
-    }
 
-    post {
-        always {
-            cleanWs(notFailBuild: true)
+        stage('clean') {
+            agent any
+
+            steps {
+                cleanWs(notFailBuild: true)
+            }
         }
     }
+
+//    post {
+//        always {
+//            cleanWs(notFailBuild: true)
+//        }
+//    }
 }
