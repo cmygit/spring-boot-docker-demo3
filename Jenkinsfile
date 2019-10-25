@@ -30,12 +30,12 @@ pipeline {
                 sh './run.sh'
             }
         }
+    }
 
-        post {
-            always {
-                steps {
-                    cleanWs(notFailBuild: true)
-                }
+    post {
+        always {
+            steps {
+                cleanWs(notFailBuild: true)
             }
         }
     }
