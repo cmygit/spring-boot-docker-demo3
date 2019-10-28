@@ -2,11 +2,19 @@ pipeline {
     agent none
 
     environment {
-        Registry = 'registry.cn-hangzhou.aliyuncs.com'
-        NameSpace = 'cmyiyi11'
-        ImageName = 'ci-demo1'
+
+        REGISTRY = 'registry.cn-hangzhou.aliyuncs.com'
+        NAME_SPACE = 'cmyiyi11'
+        IMAGE_NAME = 'ci-demo1'
+
         DOCKER_USER_USERNAME = credentials('docker-ali-registry-user-username')
         DOCKER_USER_PASSWORD = credentials('docker-ali-registry-user-password')
+
+        RUN_CONTINER = true
+        HOST_PORT = 9090
+        CONTAINER_PORT = 8080
+
+        PUSH_IMAGE = false
     }
 
     stages {
@@ -31,6 +39,11 @@ pipeline {
                 sh './docker-build.sh'
             }
         }
+
+//        stage('docker-push') {
+//            agent any
+//
+//        }
 
         stage('clean') {
             agent any
