@@ -40,11 +40,6 @@ pipeline {
             }
         }
 
-//        stage('docker-push') {
-//            agent any
-//
-//        }
-
         stage('clean') {
             agent any
 
